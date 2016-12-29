@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start-server": "node ./bin/www",
-    "start-client-dev": "webpack-dev-server --inline --content-base"
+    "start": "node server/app.js",
+    "start-client": "webpack-dev-server --inline --content-base",
+    "start-both": "npm start & webpack-dev-server --inline --content-base"
   },
   "dependencies": {
     "babel": "^6.5.2",
