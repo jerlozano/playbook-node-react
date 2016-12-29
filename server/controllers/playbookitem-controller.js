@@ -47,9 +47,6 @@ module.exports = function() {
     });
   }
 
-  /*
-    Not finished
-  */
   module.deletePlaybookitem = function(playbookid, playbookitemid, callback) {
     Playbooks.findById(playbookid, function (err, playbook) {
       if(err) {
@@ -68,20 +65,38 @@ module.exports = function() {
         });
         return;
       }
-      // loop through the playbook items, find the one you want, then delete
 
+      var index = -1;
+      for (var i = 0; i < playbook.items.length; i++) {
+        if (playbook.items[i]._id == playbookitemid) {
+          index = i;
+        }
+      }
 
-      // calling the id function on the items is not working, might be due to the
-      // way the schema is set up
-      playbook.items.pull(playbookitemid);
-      logger.debug(playbook.items);
-      // playbook.save();
+      var itemsChanged = false;
+      if (index > -1) {
+        var itemCountBefore = playbook.items.length;
+        var result = playbook.items.splice(index, 1);
+        var itemCountAfter = playbook.items.length;
+        if (itemCountBefore != itemCountAfter) {
+          itemsChanged = true;
+        }
+      }
+
+      if (!itemsChanged) {
+        callback({
+          success: false,
+          message: 'item not deleted'
+        });
+        return;
+      }
+
+      playbook.save();
       callback({
         success: true,
         message: 'pbitem: ' + playbookitemid + ' removed from pb: ' + playbookid
       });
     });
-
   }
 
   return module;
