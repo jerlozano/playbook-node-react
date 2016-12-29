@@ -1,0 +1,128 @@
+<div class="wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title">Playbook</b></h4>
+                            <p class="text-muted m-b-30 font-13">
+                                About the playbook
+                            </p>
+                            <form ng-controller="pbCtrl" name="playbookForm" ng-submit="submit()" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-1 control-label">Title</label>
+                                    <div class="col-md-11">
+                                        <input type="text" ng-model="ptitle" class="form-control" value="Name your playbook...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-1 control-label"></label>
+                                    <div class="col-md-11">
+                                        <input ng-model="favoritechoice" type="checkbox" id="cbox1" value="first_checkbox"> Mark as a favorite
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-1 control-label"></label>
+                                    <div class="col-md-11">
+                                        <button class="btn btn-secondary" type="submit">Save</button>&nbsp;
+                                        <span>{{updatemsg}}</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title"><b>Items</b></h4>
+                            <p class="text-muted m-b-30 font-13">
+                                Drag & drop hierarchical item list.
+                            </p>
+
+                            <div class="custom-dd-empty dd" id="nestable_list_3">
+                                <ol class="dd-list" ng-repeat="i in allitems">
+                                    <li class="dd-item dd3-item" data-id="13">
+                                        <div class="dd-handle dd3-handle"></div>
+                                        <div class="dd3-content">
+                                            {{i.name}}
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                            <!--<div class="custom-dd-empty dd" id="nestable_list_3">
+                                <ol class="dd-list">
+                                    <li class="dd-item dd3-item" data-id="13">
+                                        <div class="dd-handle dd3-handle"></div>
+                                        <div class="dd3-content">
+                                            Item 13
+                                        </div>
+                                    </li>
+                                    <li class="dd-item dd3-item" data-id="14">
+                                        <div class="dd-handle dd3-handle"></div>
+                                        <div class="dd3-content">
+                                            Item 14
+                                        </div>
+                                    </li>
+                                    <li class="dd-item dd3-item" data-id="15">
+                                        <div class="dd-handle dd3-handle"></div>
+                                        <div class="dd3-content">
+                                            Item 15
+                                        </div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item dd3-item" data-id="16">
+                                                <div class="dd-handle dd3-handle"></div>
+                                                <div class="dd3-content">
+                                                    Item 16
+                                                </div>
+                                            </li>
+                                            <li class="dd-item dd3-item" data-id="17">
+                                                <div class="dd-handle dd3-handle"></div>
+                                                <div class="dd3-content">
+                                                    Item 17
+                                                </div>
+                                            </li>
+                                            <li class="dd-item dd3-item" data-id="18">
+                                                <div class="dd-handle dd3-handle"></div>
+                                                <div class="dd3-content">
+                                                    Item 18
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>&lt;!&ndash; end col &ndash;&gt;
+-->
+                    </div> <!-- end row -->
+                    <div class="col-md-6">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title">Edit Item</b></h4>
+                            <p class="text-muted m-b-30 font-13">
+                                Create or edit a new item
+                            </p>
+
+                            <form class="form-horizontal" role="form" ng-controller="pbCtrl" name="ItemForm" ng-submit="itemsubmit()">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Name</label>
+                                    <div class="col-md-10">
+                                        <input type="text" ng-model="iteminput" class="form-control" value="Item name..."></br>
+                                        <button class="btn btn-secondary" type="submit">Add Item</button>&nbsp;
+                                        <span>{{itemupdatemsg}}</span>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+    </div>
+</div>

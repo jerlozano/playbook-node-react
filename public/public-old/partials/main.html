@@ -1,0 +1,46 @@
+<!-- =======================
+     ===== START PAGE ======
+     ======================= -->
+<div class="wrapper">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title"><span class="md-stars"></span>&nbsp;Favorites</h4>
+            </div>
+        </div>
+        <!-- Page-Title -->
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-3" ng-repeat="p in playbooklist | filter:{favorite:'true'}">
+                <div class="widget-simple-chart text-right card-box">
+                    <h3 class="{{p.titlecolor}}"><a href="#/playbook/{{p._id}}">{{p.title}}</a></h3>
+                    <p class="text-muted text-nowrap">{{p.items.length}}&nbsp;Tasks</p>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title"><span class="md-book"></span>&nbsp;Playbooks</h4>
+            </div>
+        </div>
+        <!-- Page-Title -->
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-3" ng-repeat="p in playbooklist">
+                <div class="widget-simple-chart text-right card-box">
+                    <h3 class="{{p.titlecolor}}"><a href="#/playbook/{{p._id}}">{{p.title}}</a></h3>
+                    <p class="text-muted text-nowrap">{{p.items.length}}&nbsp;Tasks</p>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>

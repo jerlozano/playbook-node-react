@@ -1,0 +1,20 @@
+{
+  "port": "3200",
+  "database": {
+    "dbServer": "localhost",
+    "dbPort": "3306",
+    "dbDialect": "mysql",
+    "dbDatabase": "freshtomatoes",
+    "dbUser": "freshtomatoes",
+    "dbPassword": "freshtomatoes"
+  },
+  "logging": {
+    "logfile": "./logs/roundup-be-ms.log",
+    "useConsoleLogger": true,
+    "consoleLogLevel": "debug",
+    "useFileLogger": false,
+    "fileLogLevel": "debug",
+    "maxFileSize": 10485760, // 10 MB
+    "maxFiles": 20
+  }
+}
