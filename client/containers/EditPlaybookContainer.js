@@ -44,7 +44,6 @@ export default class EditPlaybookContainer extends React.Component {
       favorite: data.favorite
     })
     .then(function (response) {
-      console.log(response.data);
       if (response.data.success) {
         tmpThis.setState({
           playbook: response.data.message
