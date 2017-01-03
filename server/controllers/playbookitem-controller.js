@@ -95,7 +95,7 @@ module.exports = function() {
       logger.debug('pbitem: ' + playbookitemid + ' removed from pb: ' + playbookid);
       callback({
         success: true,
-        message: 'pbitem: ' + playbookitemid + ' removed from pb: ' + playbookid
+        message: playbook.items
       });
     });
   }

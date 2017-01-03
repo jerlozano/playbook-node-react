@@ -61,9 +61,18 @@ export default class EditPlaybookContainer extends React.Component {
   }
 
   deleteItem(playbookitemid) {
+    var itemThis = this;
     axios.delete('http://localhost:3200/playbookitems/' + this.props.params.playbookid + '/' + playbookitemid)
     .then(function (response) {
-      window.location.href = 'http://localhost:8080/';
+      var items = response.data.message;
+      console.log(items);
+      if (items) {
+        var updatedPlaybook = itemThis.state.playbook;
+        updatedPlaybook.items = items;
+        itemThis.setState({
+          playbook: updatedPlaybook
+        });
+      }
     })
     .catch(function (error) {
       console.log(error);
