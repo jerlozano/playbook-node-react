@@ -64,7 +64,7 @@ module.exports = function() {
         logger.debug('playbook successfully updated');
         callback({
           success: true,
-          message: 'successfully updated'
+          message: playbook
         });
       });
 

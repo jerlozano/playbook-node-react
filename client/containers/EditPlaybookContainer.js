@@ -38,12 +38,18 @@ export default class EditPlaybookContainer extends React.Component {
 
   // function to update playbook, gets passed down to titlefavoriteblock component
   updatePlaybook(data) {
+    var tmpThis = this;
     axios.put('http://localhost:3200/playbooks/' + this.props.params.playbookid, {
       title: data.title,
       favorite: data.favorite
     })
     .then(function (response) {
-      window.location.href = 'http://localhost:8080/';
+      console.log(response.data);
+      if (response.data.success) {
+        tmpThis.setState({
+          playbook: response.data.message
+        });
+      }
     })
     .catch(function (error) {
       console.log(error);
