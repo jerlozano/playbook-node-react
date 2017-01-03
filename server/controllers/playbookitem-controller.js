@@ -92,6 +92,7 @@ module.exports = function() {
       }
 
       playbook.save();
+      logger.debug('pbitem: ' + playbookitemid + ' removed from pb: ' + playbookid);
       callback({
         success: true,
         message: 'pbitem: ' + playbookitemid + ' removed from pb: ' + playbookid

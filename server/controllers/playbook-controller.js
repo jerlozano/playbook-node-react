@@ -101,6 +101,7 @@ module.exports = function() {
         })
         return;
       }
+      logger.debug('Playbook deleted, id=' + id);
       callback({
         success: true,
         message: 'Playbook deleted, id=' + id
