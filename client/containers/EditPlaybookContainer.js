@@ -9,6 +9,7 @@ export default class EditPlaybookContainer extends React.Component {
     };
     this.addItem = this.addItem.bind(this);
     this.updatePlaybook = this.updatePlaybook.bind(this);
+    this.deletePlaybook = this.deletePlaybook.bind(this);
   }
 
   // function to add item to a playbook, gets passed down to additem component
@@ -48,6 +49,16 @@ export default class EditPlaybookContainer extends React.Component {
     });
   }
 
+  deletePlaybook(data) {
+    axios.delete('http://localhost:3200/playbooks/' + this.props.params.playbookid)
+    .then(function (response) {
+      window.location.href = 'http://localhost:8080/';
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   componentDidMount() {
     axios.get('http://localhost:3200/playbooks/' + this.props.params.playbookid)
       .then(res => {
@@ -61,7 +72,7 @@ export default class EditPlaybookContainer extends React.Component {
     return (
       <div>
         <EditPlaybook title={ this.state.playbook.title } favorite={ this.state.playbook.favorite } items={ this.state.playbook.items }
-          addItem={ this.addItem } updatePlaybook={ this.updatePlaybook }/>
+          addItem={ this.addItem } updatePlaybook={ this.updatePlaybook } deletePlaybook={ this.deletePlaybook }/>
       </div>
     )
   }

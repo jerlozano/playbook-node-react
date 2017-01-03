@@ -10,6 +10,7 @@ export default class TitleFavoriteBlock extends React.Component {
 
     this.didSwitchParentObject = true; // used for initial, post ajax loading of form values
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.onCheck = this.onCheck.bind(this);
     this.onTitleChange = this.onTitleChange.bind(this);
   }
@@ -33,6 +34,13 @@ export default class TitleFavoriteBlock extends React.Component {
       favorite: document.getElementById('cbox1').checked
     }
     this.props.submitAction(data);
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    if (confirm('Are you sure you want to delete this playbook?')) {
+      this.props.deleteAction();
+    }
   }
 
   onCheck() {
@@ -73,6 +81,12 @@ export default class TitleFavoriteBlock extends React.Component {
                           <label className="col-md-1 control-label"></label>
                           <div className="col-md-11">
                               <button className="btn btn-secondary" type="submit" onClick={ this.handleSubmit }>Save</button>
+                          </div>
+                      </div>
+                      <div id="deletePlaybook" className="form-group row" style={{display: this.props.deleteAction ? 'block' : 'none' }}>
+                          <label className="col-md-1 control-label"></label>
+                          <div className="col-md-11">
+                              <button className="btn btn-secondary" type="submit" onClick={ this.handleDelete }>Delete</button>
                           </div>
                       </div>
                   </form>
