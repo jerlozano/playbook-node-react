@@ -13,7 +13,12 @@ export default class AddItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitAction(this.refs.itemname.value);
+    var itemname = this.refs.itemname.value;
+    if (!itemname || itemname.length <= 0) {
+      alert('ITEM NAME CANNOT BE EMPTY');
+      return;
+    }
+    this.props.submitAction(itemname);
     this.setState({
       workingItemName: ''
     });

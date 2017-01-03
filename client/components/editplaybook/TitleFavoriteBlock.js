@@ -29,8 +29,13 @@ export default class TitleFavoriteBlock extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    var title = this.refs.title.value;
+    if (!title || title.length <= 0) {
+      alert('TITLE CANNOT BE EMPTY');
+      return;
+    }
     var data = {
-      title: this.refs.title.value,
+      title: title,
       favorite: document.getElementById('cbox1').checked
     }
     this.props.submitAction(data);
