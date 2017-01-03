@@ -11,7 +11,7 @@ export default class EditPlaybook extends React.Component {
           <div className="row">
             <div className="col-sm-12">
               <TitleFavoriteBlock title={ this.props.title } submitAction={ this.props.updatePlaybook } favorite={ this.props.favorite } deleteAction={ this.props.deletePlaybook }/>
-              <ListOfItems items={ this.props.items } />
+              <ListOfItems items={ this.props.items } deleteAction={ this.props.deleteItem }/>
               <AddItem title={ this.props.title } submitAction={ this.props.addItem }/>
             </div>
           </div>

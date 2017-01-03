@@ -43,7 +43,7 @@ export default class TitleFavoriteBlock extends React.Component {
 
   handleDelete(event) {
     event.preventDefault();
-    if (confirm('Are you sure you want to delete this playbook?')) {
+    if (confirm('Are you sure you want to delete this playbook: ' + this.props.title)) {
       this.props.deleteAction();
     }
   }

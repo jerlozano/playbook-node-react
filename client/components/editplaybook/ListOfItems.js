@@ -6,7 +6,7 @@ export default class ListOfItems extends React.Component {
     var rows = [];
     if (this.props.items) {
       for (var i = 0; i < this.props.items.length; i++) {
-        rows.push(<Item key={this.props.items[i]._id} itemname={this.props.items[i].name} />);
+        rows.push(<Item key={this.props.items[i]._id} id={this.props.items[i]._id} itemname={this.props.items[i].name} deleteAction={ this.props.deleteAction } />);
       }
     }
     return (
