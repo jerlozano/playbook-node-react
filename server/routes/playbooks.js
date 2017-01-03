@@ -34,13 +34,13 @@ router.post('/', function (req, res, next) {
   });
 });
 
-/*
- router.delete('/:oppId', function(req, res, next){
- var idtoDelete=req.params.oppId;
 
- Users.findByIdAndRemove(idtoDelete,function(){
- res.json({message: idtoDelete + " deleted"});
- });
- })*/
+ router.delete('/:pbId', function(req, res, next){
+   var id = req.params.pbId;
+
+   playbookController.deletePlaybook(id, function(payload) {
+     res.json(payload);
+   });
+ })
 
 module.exports = router;

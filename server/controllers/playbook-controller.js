@@ -90,5 +90,23 @@ module.exports = function() {
     })
   }
 
+  module.deletePlaybook = function(id, callback) {
+    logger.debug('get playbook by id');
+    Playbooks.findByIdAndRemove(id, function(err) {
+      if(err) {
+        logger.error(err);
+        callback({
+          success: false,
+          message: err
+        })
+        return;
+      }
+      callback({
+        success: true,
+        message: 'Playbook deleted, id=' + id
+      })
+    });
+  }
+
   return module;
 };
