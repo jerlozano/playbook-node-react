@@ -9,7 +9,7 @@ export default class CreatePlaybookContainer extends React.Component {
 
   createPlaybook(data) {
     axios.post('http://localhost:3200/playbooks', {
-      title: data.title,
+      title: data.title.trim(),
       favorite: data.favorite
     })
     .then(function (response) {

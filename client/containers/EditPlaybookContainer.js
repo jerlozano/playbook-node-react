@@ -18,7 +18,7 @@ export default class EditPlaybookContainer extends React.Component {
     // hackish approach to use the outer scoped this within the axios callback
     var itemThis = this;
     axios.post('http://localhost:3200/playbookitems', {
-      name: itemname,
+      name: itemname.trim(),
       pbid: this.props.params.playbookid
     })
     .then(function (response) {
@@ -40,7 +40,7 @@ export default class EditPlaybookContainer extends React.Component {
   updatePlaybook(data) {
     var tmpThis = this;
     axios.put('http://localhost:3200/playbooks/' + this.props.params.playbookid, {
-      title: data.title,
+      title: data.title.trim(),
       favorite: data.favorite
     })
     .then(function (response) {
