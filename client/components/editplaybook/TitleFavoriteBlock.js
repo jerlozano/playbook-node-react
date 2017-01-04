@@ -65,7 +65,7 @@ export default class TitleFavoriteBlock extends React.Component {
       <div className="row">
           <div className="col-md-12">
               <div className="card-box">
-                  <h4 className="m-t-0 header-title"><b>{ this.props.title }</b></h4>
+                  <h4 className="m-t-0 header-title"><b><span className="md-stars" style={{display: this.props.favorite ? 'inline' : 'none' }}></span>{ this.props.title }</b></h4>
                   <p className="text-muted m-b-30 font-13">
                       About the playbook
                   </p>
