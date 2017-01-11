@@ -1,12 +1,13 @@
 {
   "port": "3200",
+  "secret": "mySecretKey",
   "database": {
     "dbServer": "localhost",
-    "dbPort": "3306",
-    "dbDialect": "mysql",
-    "dbDatabase": "freshtomatoes",
-    "dbUser": "freshtomatoes",
-    "dbPassword": "freshtomatoes"
+    "dbPort": "",
+    "dbDialect": "mongo",
+    "dbDatabase": "",
+    "dbUser": "",
+    "dbPassword": ""
   },
   "logging": {
     "logfile": "./logs/roundup-be-ms.log",
